@@ -1,5 +1,14 @@
 onload = () => {
     const elementosAll = document.getElementsByClassName('cards');
+    for (i = 2; i < elementosAll.length; i++) {
+        elementosAll[i].classList.add('si-vision');
+        elementosAll[i].style.transform = 'translate(80%)';
+    }
+
+
+    elementosAll[elementosAll.length - 1].classList.add('si-vision');
+    elementosAll[elementosAll.length - 1].style.transform = 'translate(-85%)';
+
     elementosAll[0].classList.add('si-vision');
     elementosAll[0].style.zIndex = '3';
     elementosAll[0].style.position = 'relative';
@@ -8,10 +17,8 @@ onload = () => {
     elementosAll[1].style.transform = 'translate(85%)';
 
 
-    for (i = 2; i < elementosAll.length; i++) {
-        elementosAll[1].style.transform = 'translate(200%)';
-        elementosAll[i].classList.add('si-vision');
-    }
+
+
 }
 
 
