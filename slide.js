@@ -24,6 +24,7 @@ onload = () => {
 
 
 let actual = 0;
+let arriba = 3;
 let elementosAll = document.getElementsByClassName('cards');
 document.getElementById('next').onclick = () => {
 
@@ -49,8 +50,8 @@ document.getElementById('next').onclick = () => {
 
         elementosAll[actual].style.transform = 'translate(0)';
         elementosAll[actual].classList.remove('hacia-izquierda');
-        elementosAll[actual].style.zIndex = '3';
-
+        elementosAll[actual].style.zIndex = arriba;
+        arriba++;
 
 
         elementosAll[actual + 1].style.transform = 'translate(85%)';
