@@ -77,7 +77,7 @@ document.getElementById('prev').onclick = () => {
         actual = elementosAll.length - 1;
         elementosAll[actual].style.zIndex = '5';
         elementosAll[actual].style.transform = 'translate(0)';
-        /* moverIzq(); */
+        moverIzq();
         console.log(actual);
 
     } else {
