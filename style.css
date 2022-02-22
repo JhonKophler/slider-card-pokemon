@@ -4,7 +4,39 @@
     box-sizing: border-box;
     font-family: 'Manrope', sans-serif;
     font-size: medium;
-    transition: all 1s;
+    transition: all .5s;
+    scroll-behavior: smooth;
+}
+
+
+/* Ancho */
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+
+/* Rieles */
+
+ ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+    box-shadow: inset 0 0 1px grey;
+}
+
+
+/* Scroll */
+
+ ::-webkit-scrollbar-thumb {
+    background: rgba(136, 136, 136, 0.790);
+    border-radius: 10px;
+}
+
+
+/* Scroll Selecionado */
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: rgba(136, 136, 136, 0.904);
 }
 
 body {
@@ -52,7 +84,7 @@ body {
     position: absolute;
     box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.5);
     border: 2px solid #000;
-    z-index: 2;
+    z-index: 5;
 }
 
 .cont-img {
@@ -93,18 +125,13 @@ i:hover {
     cursor: pointer;
 }
 
-.no-vision {
-    display: none;
-}
 
-.si-vision {
-    display: inline;
-}
-
+/*
 .hacia-izquierda {
     animation-duration: 1s;
     animation-name: izquierda;
 }
+
 
 @keyframes izquierda {
     from {
@@ -127,4 +154,4 @@ i:hover {
     to {
         right: -200%;
     }
-}
+} */

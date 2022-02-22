@@ -1,20 +1,28 @@
-onload = () => {
+onload = moverDer();
+
+function moverDer() {
     const elementosAll = document.getElementsByClassName('cards');
     for (i = 2; i < elementosAll.length; i++) {
-        elementosAll[i].classList.add('si-vision');
-        elementosAll[i].style.transform = 'translate(80%)';
+        elementosAll[i].style.transform = 'translate(105%)';
     }
 
+    elementosAll[elementosAll.length - 1].style.transform = 'translate(-105%)';
+    elementosAll[elementosAll.length - 1].style.zIndex = '0';
 
-    elementosAll[elementosAll.length - 1].classList.add('si-vision');
-    elementosAll[elementosAll.length - 1].style.transform = 'translate(-85%)';
-
-    elementosAll[0].classList.add('si-vision');
-    elementosAll[0].style.zIndex = '3';
+    elementosAll[0].style.zIndex = '5';
     elementosAll[0].style.position = 'relative';
 
-    elementosAll[1].classList.add('si-vision');
-    elementosAll[1].style.transform = 'translate(85%)';
+    elementosAll[1].style.transform = 'translate(105%)';
+
+
+}
+
+
+function moverIzq() {
+    const elementosAll = document.getElementsByClassName('cards');
+    for (i = 2; i < elementosAll.length; i++) {
+        elementosAll[i].style.transform = 'translate(105%)';
+    }
 
 
 
@@ -22,72 +30,73 @@ onload = () => {
 }
 
 
-
 let actual = 0;
-let arriba = 3;
 let elementosAll = document.getElementsByClassName('cards');
 document.getElementById('next').onclick = () => {
 
     if (actual != elementosAll.length - 1) {
 
-        /* if (actual == 0) {
-            elementosAll[elementosAll.length - 1].classList.remove('no-vision');
-            elementosAll[elementosAll.length - 1].classList.add('si-vision');
-            elementosAll[elementosAll.length - 1].style.transform = 'translate(+95%)';
-        } */
 
-        /* setTimeout(() => {
-            elementosAll[actual].classList.remove('si-vision');
-            elementosAll[actual].classList.add('no-vision');
-        }, 1000); */
 
-        elementosAll[actual].classList.remove('hacia-derecha');
-        elementosAll[actual].style.transform = 'translate(-90%)';
-        elementosAll[actual].style.zIndex = '2';
-
+        elementosAll[actual].style.transform = 'translate(-105%)';
+        elementosAll[actual].style.zIndex = '1';
         actual++;
-        elementosAll[actual + 1].style.transform = 'translate(100%)';
+
 
         elementosAll[actual].style.transform = 'translate(0)';
-        elementosAll[actual].classList.remove('hacia-izquierda');
-        elementosAll[actual].style.zIndex = arriba;
-        arriba++;
+        elementosAll[actual].style.zIndex = '5';
 
+        console.log(actual);
+        if ((actual + 1) == elementosAll.length - 2) {
 
-        elementosAll[actual + 1].style.transform = 'translate(85%)';
-        elementosAll[actual + 1].style.position = 'absolute';
-        elementosAll[actual + 1].style.zIndex = '0';
+            elementosAll[actual + 2].style.zIndex = '0';
+            elementosAll[actual + 2].style.transform = 'translate(105%)';
 
-
-
-        /* elementosAll[actual].classList.remove('hacia-izquierda');
-        elementosAll[actual].classList.remove('no-vision');
-        elementosAll[actual].classList.add('si-vision'); */
+            elementosAll[0].style.transform = 'translate(105%)';
+        }
 
     } else {
 
-        elementosAll[actual].classList.remove('si-vision');
-        elementosAll[actual].classList.add('no-vision');
+        console.log(actual);
+        elementosAll[actual].style.transform = 'translate(-105%)';
         actual = 0;
-        elementosAll[actual].classList.remove('no-vision');
-        elementosAll[actual].classList.add('si-vision');
+        elementosAll[actual].style.transform = 'translate(0)';
+        moverDer();
+
     }
 }
 
+
 document.getElementById('prev').onclick = () => {
 
-    if (actual > 0) {
-        elementosAll[actual].classList.remove('si-vision');
-        elementosAll[actual].classList.add('no-vision');
+    if (actual >= 1) {
+
+
+
+        elementosAll[actual].style.transform = 'translate(105%)';
+        elementosAll[actual].style.zIndex = '1';
         actual--;
-        elementosAll[actual].classList.remove('no-vision');
-        elementosAll[actual].classList.add('si-vision');
+
+
+        elementosAll[elementosAll.length - 1].style.transform = 'translate(0)';
+        elementosAll[elementosAll.length - 1].style.zIndex = '5';
+
+        if ((actual - 1) < 0) {
+
+
+
+            elementosAll[0].style.transform = 'translate(105%)';
+            console.log('menor a 2')
+        }
+
 
     } else {
-        elementosAll[actual].classList.remove('si-vision');
-        elementosAll[actual].classList.add('no-vision');
+        console.log('menor a 1');
+        elementosAll[actual].style.transform = 'translate(105%)';
+        elementosAll[actual].style.backgroundColor = 'green';
         actual = elementosAll.length - 1;
-        elementosAll[actual].classList.remove('no-vision');
-        elementosAll[actual].classList.add('si-vision');
+        elementosAll[actual].style.transform = 'translate(0)';
+        moverIzq();
+
     }
 }
